@@ -1,5 +1,14 @@
 # Aplicatia pentru crearea meniului - examen
 
+## 0. Pentru rulare:
+
+Instalati Node.js v18+ si apoi din radacinea proiectului rulati:
+
+```bash
+npm i
+npm start
+```
+
 ## 1. Proiectare
 
 ### 1.1. Arhitectura aplicatiei
