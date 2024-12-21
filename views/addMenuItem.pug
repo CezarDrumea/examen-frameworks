@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Add Menu Item
+  body
+    h1 Add a New Menu Item
+    form(action="/menu-items", method="POST")
+      label Name:
+      input(type="text", name="name", required=true)
+      br
+      label Price:
+      input(type="number", step="0.01", name="price", required=true)
+      br
+      label Description:
+      textarea(name="description")
+      br
+      label Category ID:
+      input(type="number", name="categoryId")
+      br
+      button(type="submit") Add
+
+    br
+    a(href="/menu-items") Back to Menu Items

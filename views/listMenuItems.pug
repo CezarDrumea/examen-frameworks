@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title Menu Items
+  body
+    h1 Menu Items
+    a(href="/") Back to Home
+    br
+    a(href="/add-menu-item") Add new Menu Item
+
+    if menuItems && menuItems.length > 0
+      ul
+        each item in menuItems
+          li
+            strong= item.name
+            |  - $#{item.price}
+
+            if item.Category
+              |  [Category: #{item.Category.name}]
+
+            form(
+              action=`/menu-items/${item.id}?_method=DELETE`
+              method="POST"
+              style="display:inline;"
+            )
+              button(type="submit") Delete
+
+            form(
+              action=`/menu-items/${item.id}?_method=PUT`
+              method="POST"
+              style="display:inline;"
+            )
+              input(type="hidden", name="name", value=item.name)
+              input(type="hidden", name="price", value=item.price)
+              input(type="hidden", name="description", value=item.description)
+              input(type="hidden", name="categoryId", value=item.categoryId)
+              button(type="submit") Update
+    else
+      ul
+        li No items found.

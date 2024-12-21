@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Add Category
+  body
+    h1 Add a New Category
+    form(action="/categories", method="POST")
+      label Category Name:
+      input(type="text", name="name", required=true)
+      button(type="submit") Add
+
+    br
+    a(href="/categories") Back to Categories

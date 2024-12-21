@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title List of Categories
+  body
+    h1 Categories
+    a(href="/") Back to Home
+    br
+    a(href="/add-category") Add new Category
+
+    if categories && categories.length > 0
+      ul
+        each cat in categories
+          li
+            = cat.name
+            form(
+              action=`/categories/${cat.id}?_method=DELETE`
+              method="POST"
+              style="display:inline;"
+            )
+              button(type="submit") Delete
+
+            form(
+              action=`/categories/${cat.id}?_method=PUT`
+              method="POST"
+              style="display:inline;"
+            )
+              input(type="hidden", name="name", value=cat.name)
+              button(type="submit") Update
+    else
+      ul
+        li No categories found.
